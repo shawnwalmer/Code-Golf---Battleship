@@ -8,6 +8,7 @@ class Player:
         self.enemy_attacks = [['-' for _ in range(10)] for _ in range(10)]
 
     def place_ships(self):
+<<<<<<< HEAD
         for ship, size in self.ships.items():
             placed = False
             while not placed:
@@ -22,6 +23,16 @@ class Player:
                 if self.can_place_ship(row, col, size, vertical):
                     self.place_ship(row, col, size, vertical)
                     placed = True
+=======
+        # Sort ships by size in descending order
+        sorted_ships = sorted(self.ships.items(), key=lambda x: x[1], reverse=True)
+
+        for row, (ship, size) in enumerate(sorted_ships):
+            col = 0
+            # Place the ship horizontally from the leftmost column
+            for i in range(size):
+                self.board[row][col + i] = 'S'
+>>>>>>> parent of 2b64b9f (initializing. -scw)
 
     def can_place_ship(self, row, col, size, vertical):
         if vertical:
