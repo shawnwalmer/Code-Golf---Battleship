@@ -38,28 +38,30 @@ To participate, follow these steps:
 ## Bot Setup
 
 The gameBoard.py file will implement the following:
-  - Initialize game board
-  - Call the bots for moves
-  - Reply to the calls for moves with whether they hit or missed
-  - Indicate the end of the game
-  - Track the score across multiple games
+  - Setup the game
+  - Retrieve the opponent at a given time
+  - Check for end conditions on the game
+  - Play the game
+  - Play a series of games
 
 The players bots will implement the following:
-  - Place pieces to initialize the board
-  - Give moves when called and expect a true or false for whether it hit
+  - Place ships to start a game
+  - Verify if a ship can be placed in a position
+  - Return a move
+  - Get the result of the move
+  - Recieve an attack and check if it hits
+  - Check for end condition
+
+The only functions that should be changed for a bot are:
+  - get_move
+  - place_ships
+All other functions should remain unchaged.
 
 ## Tournament
 
 - Bots will be matched in a round-robin format to ensure each bot plays against every other bot.
 - Points are awarded based on game outcome: win (3 points), draw (1 point), loss (0 points).
 - The leaderboard will be updated regularly to show standings.
-
-## Leaderboard
-
-Check back here to see which bots are leading in the competition!
-
-- **BotName1**: 15 points
-- **BotName2**: 12 points
 
 ## License
 
