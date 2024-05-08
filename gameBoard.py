@@ -1,11 +1,11 @@
 class GameBoard:
-    def __init__(self):
+    def __init__(self, players):
         self.board_size = 10
         self.ships = {'Carrier': 5, 'Battleship': 4, 'Cruiser': 3, 'Submarine': 3, 'Destroyer': 2}
-        self.players = []
+        self.players = players
         self.current_game = 0
         self.total_games = 0
-        self.scores = {}
+        self.scores = {player.name: 0 for player in self.players}
 
     def add_player(self, player):
         self.players.append(player)
@@ -54,24 +54,3 @@ class GameBoard:
         for _ in range(games):
             self.setup_game()
             self.play_game()
-
-class Player:
-    def __init__(self, name):
-        self.name = name
-        self.board = None
-
-    def place_ships(self):
-        # Initialize board with ships
-        pass
-
-    def get_move(self):
-        # Implement logic to determine next move
-        pass
-
-    def receive_result(self, move, result):
-        # Receive the result of a move (hit/miss)
-        pass
-
-    def has_won(self):
-        # Implement winning condition check
-        pass
