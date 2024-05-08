@@ -33,12 +33,12 @@ To participate, follow these steps:
 2. Create your bot branch (`git checkout -b bot/YourBotName`).
 3. Commit your bot code (`git commit -am 'Add YourBotName'`).
 4. Push to the branch (`git push origin bot/YourBotName`).
-5. Open a new Pull Request with a detailed description of your bot's strategy.
+5. Open a new Pull Request with a detailed description of your bots strategy.
 
 ## Bot Setup
 
 The gameBoard.py file will implement the following:
-  - Setup the game
+  - Set up the game
   - Retrieve the opponent at a given time
   - Check for end conditions on the game
   - Play the game
@@ -49,13 +49,13 @@ The players bots will implement the following:
   - Verify if a ship can be placed in a position
   - Return a move
   - Get the result of the move
-  - Recieve an attack and check if it hits
+  - Receive an attack and check if it hits
   - Check for end condition
 
 The only functions that should be changed for a bot are:
   - get_move
   - place_ships
-All other functions should remain unchaged.
+All other functions should remain unchanged.
 
 ## Tournament
 
