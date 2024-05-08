@@ -31,7 +31,7 @@ def main(player1_module, player2_module):
     game_board = GameBoard([player1_instance, player2_instance])
 
     # Play a series of games
-    num_games = 5  # or any other configuration
+    num_games = 500  # or any other configuration
     game_board.play_series(num_games)
 
 if __name__ == "__main__":
