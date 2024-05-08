@@ -1,15 +1,9 @@
 class GameBoard:
     def __init__(self, players):
-        self.board_size = 10
-        self.ships = {'Carrier': 5, 'Battleship': 4, 'Cruiser': 3, 'Submarine': 3, 'Destroyer': 2}
         self.players = players
         self.current_game = 0
         self.total_games = 0
         self.scores = {player.name: 0 for player in self.players}
-
-    def add_player(self, player):
-        self.players.append(player)
-        self.scores[player.name] = 0
 
     def setup_game(self):
         self.current_game += 1
@@ -22,17 +16,14 @@ class GameBoard:
         while not game_over:
             for player in self.players:
                 move = player.get_move()
-                result = self.check_hit(player, move)
+                opponent = self.get_opponent(player)
+                result = opponent.receive_attack(move)
                 player.receive_result(move, result)
-                game_over = self.is_game_over()
-                if game_over:
+                if self.is_game_over():
+                    game_over = True
                     break
 
         self.update_scores()
-
-    def check_hit(self, player, move):
-        opponent = self.get_opponent(player)
-        return opponent.board.receive_attack(move)
 
     def get_opponent(self, player):
         for p in self.players:
@@ -40,12 +31,16 @@ class GameBoard:
                 return p
 
     def is_game_over(self):
-        # Implement logic to determine if the game is over
+        # The game is over when one player has no ships left
+        for player in self.players:
+            if player.has_won():
+                return True
         return False
 
     def update_scores(self):
+        # Only the winner gets a point
         for player in self.players:
-            if player.has_won():
+            if player.has_won():  # Ensure this function checks if the opponent's ships are all hit
                 self.scores[player.name] += 1
         print(f"Scores after game {self.current_game}: {self.scores}")
 
