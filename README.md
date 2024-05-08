@@ -35,6 +35,19 @@ To participate, follow these steps:
 4. Push to the branch (`git push origin bot/YourBotName`).
 5. Open a new Pull Request with a detailed description of your bot's strategy.
 
+## Bot Setup
+
+The gameBoard.py file will implement the following:
+  - Initialize game board
+  - Call the bots for moves
+  - Reply to the calls for moves with whether they hit or missed
+  - Indicate the end of the game
+  - Track the score across multiple games
+
+The players bots will implement the following:
+  - Place pieces to initialize the board
+  - Give moves when called and expect a true or false for whether it hit
+
 ## Tournament
 
 - Bots will be matched in a round-robin format to ensure each bot plays against every other bot.
